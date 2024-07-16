@@ -1,19 +1,18 @@
-name: Push-to-EC2
+name: push-to-EC2
 
-# Trigger deployment only on push to main branch
 on:
   push:
     branches:
-      - main
+      - main  # or 'master' if that is your default branch
 
 jobs:
   deploy:
-    name: Deploy to EC2 on master branch push
+    name: Deploy to EC2  # Name of the job
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout the files
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
